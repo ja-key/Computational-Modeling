@@ -96,7 +96,8 @@ for n in range(0, nmax-1):   # March upwards from y=0 to y=10
    # Update left boundary (node i = 0)  ******
    # Since u<0 on the left boundary a (first-order) numerical condition
    # should be implemented. Finish the line and uncomment it
-   Z[0,n+1] = Z[0,n]
+   i = 0
+   Z[i,n+1] = Z[i, n] + dy/v[i,n]*(F[i,n]-u[i,n]/dx*(Z[i+1, n]-Z[i, n]))
 
   
    # Update interior (nodes i=1 to imax-2) 
@@ -112,7 +113,8 @@ for n in range(0, nmax-1):   # March upwards from y=0 to y=10
    # Update right boundary (node i = imax-1)  ******
    # Since u>0 on the right boundary a (first-order) numerical condition
    # should be implemented. Finish the line and uncomment it.
-   Z[imax-1,n+1] =  Z[imax-1,n]
+   i = imax-1
+   Z[i, n + 1] = Z[i, n] + dy / v[i, n] * (F[i, n] - u[i, n] / dx * (Z[i, n] - Z[i-1, n]))
                 
 
 

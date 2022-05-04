@@ -89,7 +89,8 @@ for n in range(0, nmax - 1):  # March upwards from y=0 to y=10
     # Since u<0 on the left boundary a (first-order) numerical condition
     # should be implemented. Finish the line and uncomment it
     i = 0
-    Z[i, n+1] = Z[i, n] - u[i, n]*dy/(2*dx*v[i, n])*(-3*Z[i, n]+4*Z[i+1, n]-Z[i+2, n])
+    # Z[i, n+1] = Z[i, n] - u[i, n]*dy/(2*dx*v[i, n])*(-3*Z[i, n]+4*Z[i+1, n]-Z[i+2, n])
+    Z[i, n + 1] = Z[i, n] - u[i,n]/v[i,n]*dy/dx*(Z[i+1,n]-Z[i,n])
 
     # Update interior (nodes i=1 to imax-2)
     # Here we use a second-order central approximation for du/dx
@@ -102,7 +103,8 @@ for n in range(0, nmax - 1):  # March upwards from y=0 to y=10
     # Since u>0 on the right boundary a (first-order) numerical condition
     # should be implemented. Finish the line and uncomment it.
     i = imax-1
-    Z[i, n+1] = Z[i, n] + u[i, n]*dy/(2*dx*v[i, n])*(-3*Z[i, n]+4*Z[i-1, n]-Z[i-2, n])
+    # Z[i, n+1] = Z[i, n] + u[i, n]*dy/(2*dx*v[i, n])*(-3*Z[i, n]+4*Z[i-1, n]-Z[i-2, n])
+    Z[i, n + 1] = Z[i, n] - u[i,n]/v[i,n]*dy/dx*(Z[i, n]-Z[i-1, n])
 
 
 # =========================================================
