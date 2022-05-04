@@ -23,10 +23,10 @@ from flameLib import getPsi,getUV,getF,getPerf
 #=========================================================
 # Input parameters
 #=========================================================
-nozc       = 0.0;                # Nozzle centre
+nozc       = -2.0;                # Nozzle centre
 nozw       = 1.0;                # Nozzle width
-imax       = 40;                 # Number of mesh points in i
-nmax       = 80;                 # Number of mesh points in j
+imax       = 200;                 # Number of mesh points in i
+nmax       = 250;                 # Number of mesh points in j
 
 maxl       = 50;                 # maximum grid lines on plots
 stride     = 4;                  # Point skip rate for suface plot
